@@ -14,4 +14,22 @@ public class UserController {
         model.addAttribute("user", user);
         return "variable-expressions";
     }
+
+    @GetMapping("selection-expressions")
+    public String selectionExpressions(Model model) {
+        User user = new User("Vinícius", "viniciusmenesesdev@gmail.com", "Admin", "male");
+        model.addAttribute("user", user);
+        return "selection-expressions";
+    }
+
+    @GetMapping("message-expressions")
+    public String messageExpressions(Model model) {
+        return "message-expressions";
+    }
+
+    @GetMapping("link-expressions")
+    public String linkExpressions(Model model) {
+       model.addAttribute("id", 1);
+        return "link-expressions";
+    }
 }
