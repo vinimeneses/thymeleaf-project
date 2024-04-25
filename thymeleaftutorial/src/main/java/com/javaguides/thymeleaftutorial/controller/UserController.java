@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -36,5 +39,35 @@ public class UserController {
     @GetMapping("fragment-expressions")
     public String fragmentExpressions(Model model) {
         return "fragment-expressions";
+    }
+
+    @GetMapping("/users")
+    public String users(Model model) {
+        User admin = new User("Vinícius", "viniciusmenesesdev@gmail.com", "ADMIN", "male");
+        User user = new User("Maria", "mariamagalhaes@gmail.com", "USER", "female");
+        List<User> users = new ArrayList<>();
+        users.add(admin);
+        users.add(user);
+        model.addAttribute("users", users);
+        return "users";
+    }
+
+    @GetMapping("/if-unless")
+    public String ifUnless(Model model) {
+        model.addAttribute("condition", true);
+        User admin = new User("Vinícius", "viniciusmenesesdev@gmail.com", "ADMIN", "male");
+        User user = new User("Maria", "mariamagalhaes@gmail.com", "USER", "female");
+        List<User> users = new ArrayList<>();
+        users.add(admin);
+        users.add(user);
+        model.addAttribute("users", users);
+        return "if-unless";
+    }
+
+    @GetMapping("/switch-case")
+    public String switchCase(Model model) {
+        User user = new User("Vinícius", "viniciusmenesesdev@gmail.com", "ADMIN", "male");
+        model.addAttribute("user", user);
+        return "switch-case";
     }
 }
