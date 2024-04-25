@@ -32,4 +32,9 @@ public class UserController {
        model.addAttribute("id", 1);
         return "link-expressions";
     }
+
+    @GetMapping("fragment-expressions")
+    public String fragmentExpressions(Model model) {
+        return "fragment-expressions";
+    }
 }
